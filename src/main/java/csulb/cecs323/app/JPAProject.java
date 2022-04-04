@@ -73,6 +73,8 @@ public class JPAProject {
 
       tx.begin();
 
+
+
       // Commit the changes so that the new data persists and is visible to other users.
       tx.commit();
       LOGGER.fine("End of Transaction");
