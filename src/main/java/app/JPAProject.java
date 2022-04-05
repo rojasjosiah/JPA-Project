@@ -10,7 +10,7 @@
  *
  */
 
-package csulb.cecs323.app;
+package app;
 
 // Import all of the entity classes that we have written for this application.
 //import csulb.cecs323.model.*;
@@ -75,91 +75,89 @@ public class JPAProject {
       System.out.println("4. Update a Book");
       System.out.println("5. List the primary key");
       System.out.println("6. Done");
-      int userInput = in.nextInt() - 1;
+      int userInput = in.nextInt();
 
-      /**while(userInput < 1 || userInput > 6){
-       System.out.println("Enter a valid number for the which Task");
-       userInput = in.nextInt() - 1;
-       }**/
-      /**if (userInput >= 1 || userInput <= 6) {
-         while (userInput != 6) {
-            System.out.println("test");
-            if (userInput == 1) {
-               System.out.println("fun test");
-               System.out.println("Add which Object: ");
-               System.out.println("1. Add a new Authoring Entity instance");
-               System.out.println("2. Add a new Publisher");
-               System.out.println("3. Add a new Book");
-               int objectInput = in.nextInt() - 1;
-               while (objectInput < 1 || objectInput > 3) {
-                  System.out.println("Enter a valid number for the which Task");
-                  objectInput = in.nextInt() - 1;
+      while(userInput < 1 || userInput > 6){
+         System.out.println("Enter a valid number for the which Task");
+         userInput = in.nextInt();
+      }
+
+      while (userInput != 6) {
+         if (userInput == 1) {
+            System.out.println("Add which Object: ");
+            System.out.println("1. Add a new Authoring Entity instance");
+            System.out.println("2. Add a new Publisher");
+            System.out.println("3. Add a new Book");
+            int objectInput = in.nextInt();
+            while (objectInput < 1 || objectInput > 3) {
+               System.out.println("Enter a valid number for the which Object");
+               objectInput = in.nextInt();
+            }
+            if (objectInput == 1) {
+               System.out.println("Which Authoring Entity instance:");
+               System.out.println("1. Writing Group");
+               System.out.println("2. Individual Author");
+               System.out.println("3. Ad Hoc Team");
+               int authoringEntityInput = in.nextInt();
+               while (authoringEntityInput < 1 || authoringEntityInput > 3) {
+                  System.out.println("Enter a valid number for the which Authoring Entity instance");
+                  authoringEntityInput = in.nextInt();
                }
-               if (objectInput == 1) {
-                  System.out.println("Which Authoring Entity instance:");
-                  System.out.println("1. Writing Group");
-                  System.out.println("2. Individual Author");
-                  System.out.println("3. Ad Hoc Team");
-                  int authoringEntityInput = in.nextInt() - 1;
-                  while (authoringEntityInput < 1 || authoringEntityInput > 3) {
-                     System.out.println("Enter a valid number for the which Task");
-                     authoringEntityInput = in.nextInt() - 1;
-                  }
-                  if (authoringEntityInput == 1) {
-                     System.out.println("writing group");
-                  }
-                  if (authoringEntityInput == 2) {
-                     System.out.println("Individual Author");
-                  }
-                  if (authoringEntityInput == 3) {
-                     System.out.println("Ad Hoc Team");
-                  }
+               if (authoringEntityInput == 1) {
+                  System.out.println("writing group");
                }
-               if (objectInput == 2) {
+               if (authoringEntityInput == 2) {
                   System.out.println("Individual Author");
                }
-               if (objectInput == 3) {
-                  System.out.println("Add a new Book");
+               if (authoringEntityInput == 3) {
+                  System.out.println("Ad Hoc Team");
                }
             }
-            if (userInput == 2) {
-               //List all the information about a specific Object
-               System.out.println("Which Object: ");
-               System.out.println("1. Publisher");
-               System.out.println("2. Book");
-               System.out.println("3. Writing Group");
-               int infoObjectInput = in.nextInt() - 1;
-               while (infoObjectInput < 1 || infoObjectInput > 3) {
-                  System.out.println("Enter a valid number for the which Task");
-                  infoObjectInput = in.nextInt() - 1;
-               }
-               if (infoObjectInput == 1) {
-                  System.out.println("Publisher");
-               }
-               if (infoObjectInput == 2) {
-                  System.out.println("Book");
-               }
-               if (infoObjectInput == 3) {
-                  System.out.println("Writing Group");
-               }
+            if (objectInput == 2) {
+               System.out.println("Individual Author");
             }
-            if (userInput == 3) {
-               System.out.println("Delete a Book");
+            if (objectInput == 3) {
+               System.out.println("Add a new Book");
             }
-            if (userInput == 4) {
-               System.out.println("Update a Book");
+         }
+         if (userInput == 2) {
+            //List all the information about a specific Object
+            System.out.println("Which Object: ");
+            System.out.println("1. Publisher");
+            System.out.println("2. Book");
+            System.out.println("3. Writing Group");
+            int infoObjectInput = in.nextInt();
+            while (infoObjectInput < 1 || infoObjectInput > 3) {
+               System.out.println("Enter a valid number for the which Object");
+               infoObjectInput = in.nextInt();
             }
-            if (userInput == 5) {
-               //List the primary key of all the rows of:
-               //a. Publishers
-               //b. Books (show the title as well as the ISBN)
-               //c. Authoring entities – and supply the type of authoring entity for
-               //each one as well.
-               System.out.println("Primary Keys");
+            if (infoObjectInput == 1) {
+               System.out.println("Publisher");
             }
-            printMenu();
-            userInput = in.nextInt() - 1;
-         }**/
+            if (infoObjectInput == 2) {
+               System.out.println("Book");
+            }
+            if (infoObjectInput == 3) {
+               System.out.println("Writing Group");
+            }
+         }
+         if (userInput == 3) {
+            System.out.println("Delete a Book");
+         }
+         if (userInput == 4) {
+            System.out.println("Update a Book");
+         }
+         if (userInput == 5) {
+            //List the primary key of all the rows of:
+            //a. Publishers
+            //b. Books (show the title as well as the ISBN)
+            //c. Authoring entities – and supply the type of authoring entity for
+            //each one as well.
+            System.out.println("Primary Keys");
+         }
+         printMenu();
+         userInput = in.nextInt();
+      }
 
       // Any changes to the database need to be done within a transaction.
       // See: https://en.wikibooks.org/wiki/Java_Persistence/Transactions
