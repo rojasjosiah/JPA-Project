@@ -62,7 +62,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>csulb.cecs323.csulb.cecs323.app.app.JPAProject</mainClass>
+							<mainClass>csulb.cecs323.csulb.cecs323.csulb.cecs323.app.app.csulb.cecs323.app.app.JPAProject</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
