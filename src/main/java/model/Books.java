@@ -32,14 +32,15 @@ public class Books {
     private String TITLE;
 
     @Column(nullable = false)
-    private Integer YEAR_PUBLISHED;
+    private int YEAR_PUBLISHED;
 
     @Column(length = 30)
     private String AUTHORING_ENTITY_NAME;
 
+    @Column(length = 80)
     private String PUBLISHER_NAME;
 
-    public Books(String ISBN, String TITLE, Integer YEAR_PUBLISHED, String AUTHORING_ENTITY_NAME,
+    public Books(String ISBN, String TITLE, int YEAR_PUBLISHED, String AUTHORING_ENTITY_NAME,
                  String PUBLISHER_NAME){
         this.ISBN = ISBN;
         this.TITLE = TITLE;
