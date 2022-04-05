@@ -69,13 +69,13 @@ public class JPAProject {
       Scanner in = new Scanner(System.in);
 
       System.out.println("Enter the number for Tasks:");
-      int userInput = in.nextInt() - 1;
       System.out.println("1. Add new objects");
       System.out.println("2. List all the information about a specific Object");
       System.out.println("3. Delete a Book");
       System.out.println("4. Update a Book");
       System.out.println("5. List the primary key");
       System.out.println("6. Done");
+      int userInput = in.nextInt() - 1;
 
       while(userInput < 1 || userInput > 6){
          System.out.println("Enter a valid number for the which Task");
@@ -120,6 +120,43 @@ public class JPAProject {
                System.out.println("Add a new Book");
             }
          }
+         if(userInput == 2){
+            //List all the information about a specific Object
+            System.out.println("Which Object: ");
+            System.out.println("1. Publisher");
+            System.out.println("2. Book");
+            System.out.println("3. Writing Group");
+            int infoObjectInput = in.nextInt() - 1;
+            while(infoObjectInput < 1 || infoObjectInput > 3){
+               System.out.println("Enter a valid number for the which Task");
+               infoObjectInput = in.nextInt() - 1;
+            }
+            if(infoObjectInput == 1){
+               System.out.println("Publisher");
+            }
+            if(infoObjectInput == 2){
+               System.out.println("Book");
+            }
+            if(infoObjectInput == 3){
+               System.out.println("Writing Group");
+            }
+         }
+         if(userInput == 3){
+            System.out.println("Delete a Book");
+         }
+         if(userInput == 4){
+            System.out.println("Update a Book");
+         }
+         if(userInput == 5){
+            //List the primary key of all the rows of:
+            //a. Publishers
+            //b. Books (show the title as well as the ISBN)
+            //c. Authoring entities – and supply the type of authoring entity for
+            //each one as well.
+            System.out.println("Primary Keys");
+         }
+         printMenu();
+         userInput = in.nextInt() - 1;
       }
 
       // Any changes to the database need to be done within a transaction.
