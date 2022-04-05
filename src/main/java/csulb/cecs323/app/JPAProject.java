@@ -20,7 +20,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Logger;
+import java.util.logging.Level;
 
 /**
  * A simple application to demonstrate how to persist an object in JPA.
@@ -58,12 +60,67 @@ public class JPAProject {
    }
 
    public static void main(String[] args) {
+      LOGGER.setLevel(Level.OFF);
       LOGGER.fine("Creating EntityManagerFactory and EntityManager");
       EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPAProject");
       EntityManager manager = factory.createEntityManager();
       // Create an instance of CarClub and store our new EntityManager as an instance variable.
       JPAProject jpaProject = new JPAProject(manager);
+      Scanner in = new Scanner(System.in);
 
+      System.out.println("Enter the number for Tasks:");
+      int userInput = in.nextInt() - 1;
+      System.out.println("1. Add new objects");
+      System.out.println("2. List all the information about a specific Object");
+      System.out.println("3. Delete a Book");
+      System.out.println("4. Update a Book");
+      System.out.println("5. List the primary key");
+      System.out.println("6. Done");
+
+      while(userInput < 1 || userInput > 6){
+         System.out.println("Enter a valid number for the which Task");
+         userInput = in.nextInt() - 1;
+      }
+
+      while(userInput != 6){
+         if(userInput == 1){
+            System.out.println("Add which Object: ");
+            System.out.println("1. Add a new Authoring Entity instance");
+            System.out.println("2. Add a new Publisher");
+            System.out.println("3. Add a new Book");
+            int objectInput = in.nextInt() - 1;
+            while(objectInput < 1 || objectInput > 3){
+               System.out.println("Enter a valid number for the which Task");
+               objectInput = in.nextInt() - 1;
+            }
+            if(objectInput == 1){
+               System.out.println("Which Authoring Entity instance:");
+               System.out.println("1. Writing Group");
+               System.out.println("2. Individual Author");
+               System.out.println("3. Ad Hoc Team");
+               int authoringEntityInput = in.nextInt() - 1;
+               while(authoringEntityInput < 1 || authoringEntityInput > 3){
+                  System.out.println("Enter a valid number for the which Task");
+                  authoringEntityInput = in.nextInt() - 1;
+               }
+               if(authoringEntityInput == 1){
+                  System.out.println("writing group");
+               }
+               if(authoringEntityInput == 2){
+                  System.out.println("Individual Author");
+               }
+               if(authoringEntityInput == 3){
+                  System.out.println("Ad Hoc Team");
+               }
+            }
+            if(objectInput == 2){
+               System.out.println("Individual Author");
+            }
+            if(objectInput == 3){
+               System.out.println("Add a new Book");
+            }
+         }
+      }
 
       // Any changes to the database need to be done within a transaction.
       // See: https://en.wikibooks.org/wiki/Java_Persistence/Transactions
@@ -109,4 +166,12 @@ public class JPAProject {
     * @return           The auto_body_styles instance corresponding to that style name.
     */
 
+   public static void printMenu(){
+      System.out.println("1. Add new objects");
+      System.out.println("2. List all the information about a specific Object");
+      System.out.println("3. Delete a Book");
+      System.out.println("4. Update a Book");
+      System.out.println("5. List the primary key");
+      System.out.println("6. Done");
+   }
 } // End of CarClub class
