@@ -1,5 +1,5 @@
 package csulb.cecs323.model;
-/** From Josiah's branch.
+/** From Josiah's branch. **/
 
 /*create table PUBLISHERS
         (
@@ -44,6 +44,7 @@ public class Publishers {
         this.PHONE = PHONE;
     }
 
+    /** for debugging **/
     @Override
     public String toString () {
         return "Publisher - Name: " + this.NAME + " Email: " + this.EMAIL +
