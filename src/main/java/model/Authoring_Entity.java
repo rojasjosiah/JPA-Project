@@ -19,6 +19,7 @@ public class Authoring_Entity {
     @Column (length=31)
     private String authoring_entity_type;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "AUTHORING_ENTITY_NAME")
     @Column (length=80, nullable = false)
     private String name;
 
