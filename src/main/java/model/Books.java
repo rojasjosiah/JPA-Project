@@ -33,7 +33,7 @@ public class Books {
 
     @Column(nullable = false)
     private int YEAR_PUBLISHED;
-
+    
     @Column(length = 30)
     private String AUTHORING_ENTITY_NAME;
 
