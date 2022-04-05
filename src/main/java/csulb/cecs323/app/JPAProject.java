@@ -20,7 +20,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Logger;
+import java.util.logging.Level;
 
 /**
  * A simple application to demonstrate how to persist an object in JPA.
@@ -58,12 +60,12 @@ public class JPAProject {
    }
 
    public static void main(String[] args) {
+      LOGGER.setLevel(Level.OFF);
       LOGGER.fine("Creating EntityManagerFactory and EntityManager");
       EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPAProject");
       EntityManager manager = factory.createEntityManager();
       // Create an instance of CarClub and store our new EntityManager as an instance variable.
       JPAProject jpaProject = new JPAProject(manager);
-<<<<<<< HEAD
       Scanner in = new Scanner(System.in);
 
       System.out.println("Enter the number for Tasks:");
@@ -158,11 +160,7 @@ public class JPAProject {
             printMenu();
             userInput = in.nextInt() - 1;
          }**/
-      }
-=======
 
-
->>>>>>> parent of 24b56e8 (Update JavaProject)
       // Any changes to the database need to be done within a transaction.
       // See: https://en.wikibooks.org/wiki/Java_Persistence/Transactions
 
@@ -207,4 +205,12 @@ public class JPAProject {
     * @return           The auto_body_styles instance corresponding to that style name.
     */
 
+   public static void printMenu(){
+      System.out.println("1. Add new objects");
+      System.out.println("2. List all the information about a specific Object");
+      System.out.println("3. Delete a Book");
+      System.out.println("4. Update a Book");
+      System.out.println("5. List the primary key");
+      System.out.println("6. Done");
+   }
 } // End of CarClub class
