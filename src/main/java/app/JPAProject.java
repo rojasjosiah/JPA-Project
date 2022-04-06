@@ -130,13 +130,16 @@ public class JPAProject {
                System.out.println("Add a new Publisher");
                System.out.println("Enter Name: ");
                String nameInput= in.nextLine();
-               System.out.println(nameInput);
-               /*System.out.println("Enter Email: ");
+               String Input= in.nextLine();
+               // ^ idk why but the nameInput won't take in the user input,
+               // but if I did this, then it does take an Input
+               //System.out.println(Input);
+               System.out.println("Enter Email: ");
                String emailInput= in.nextLine();
                System.out.println("Enter Phone: ");
                String phoneInput= in.nextLine();
-               publishers.add(new Publishers(nameInput, emailInput, phoneInput));
-               System.out.println(publishers);*/
+               publishers.add(new Publishers(Input, emailInput, phoneInput));
+               System.out.println(publishers);
             }
             if (objectInput == 3) {
                System.out.println("Add a new Book");
@@ -181,6 +184,7 @@ public class JPAProject {
          userInput = in.nextInt();
       }
 
+      jpaProject.createEntity(publishers);
       // Commit the changes so that the new data persists and is visible to other users.
       tx.commit();
       LOGGER.fine("End of Transaction");
