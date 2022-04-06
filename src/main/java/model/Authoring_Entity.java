@@ -3,7 +3,8 @@ package model;
 import javax.persistence.*;
 
 @Entity
-public class Authoring_Entity {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Authoring_Entity {
     /*
     create table AUTHORING_ENTITIES (
     EMAIL VARCHAR(30) not null primary key,
