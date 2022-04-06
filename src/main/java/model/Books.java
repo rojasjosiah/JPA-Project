@@ -29,24 +29,28 @@ public class Books {
     private String ISBN;
 
     @Column(length = 80, nullable = false)
-    private String TITLE;
+    private String title;
 
     @Column(nullable = false)
-    private int YEAR_PUBLISHED;
+    private int year_published;
 
+    @OneToMany
+    @JoinColumn(referencedColumnName = "name")
     @Column(length = 30)
-    private String AUTHORING_ENTITY_NAME;
+    private Authoring_Entity authoring_entity_name;
 
+    @ManyToMany
+    @JoinColumn(referencedColumnName = "name")
     @Column(length = 80)
-    private String PUBLISHER_NAME;
+    private Publishers publisher_name;
 
-    public Books(String ISBN, String TITLE, int YEAR_PUBLISHED, String AUTHORING_ENTITY_NAME,
-                 String PUBLISHER_NAME){
+    public Books(String ISBN, String title, int year_published, Authoring_Entity authoring_entity_name,
+                 Publishers publisher_name){
         this.ISBN = ISBN;
-        this.TITLE = TITLE;
-        this.YEAR_PUBLISHED = YEAR_PUBLISHED;
-        this.AUTHORING_ENTITY_NAME = AUTHORING_ENTITY_NAME;
-        this.PUBLISHER_NAME = PUBLISHER_NAME;
+        this.title = title;
+        this.year_published = year_published;
+        this.authoring_entity_name = authoring_entity_name;
+        this.publisher_name = publisher_name;
     }
 
     public Books() {}
@@ -55,29 +59,29 @@ public class Books {
         this.ISBN = ISBN;
     }
 
-    public void setTITLE(String TITLE) {
-        this.TITLE = TITLE;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setYEAR_PUBLISHED(Integer YEAR_PUBLISHED) {
-        this.YEAR_PUBLISHED = YEAR_PUBLISHED;
+    public void setYear_published(Integer year_published) {
+        this.year_published = year_published;
     }
 
-    public void setAUTHORING_ENTITY_NAME(String AUTHORING_ENTITY_NAME) {
-        this.AUTHORING_ENTITY_NAME = AUTHORING_ENTITY_NAME;
+    public void setAuthoring_entity_name(Authoring_Entity authoring_entity_name) {
+        this.authoring_entity_name = authoring_entity_name;
     }
 
-    public void setPUBLISHER_NAME(String PUBLISHER_NAME) {
-        this.PUBLISHER_NAME = PUBLISHER_NAME;
+    public void setPublisher_name(Publishers publisher_name) {
+        this.publisher_name = publisher_name;
     }
 
     /** for debugging **/
     @Override
     public String toString () {
-        return "Book - ISBN: " + this.ISBN + " Title: " + this.TITLE +
-                " Year: " + this.YEAR_PUBLISHED +
-                " AUTHORING_ENTITY_NAME: " + this.AUTHORING_ENTITY_NAME +
-                " PUBLISHER_NAME: " + this.PUBLISHER_NAME;
+        return "Book - ISBN: " + this.ISBN + " Title: " + this.title +
+                " Year: " + this.year_published +
+                " AUTHORING_ENTITY_NAME: " + this.authoring_entity_name +
+                " PUBLISHER_NAME: " + this.publisher_name;
     }
 }
 
