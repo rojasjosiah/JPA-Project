@@ -3,26 +3,26 @@ package model;
 import javax.persistence.*;
 
 /**create table BOOKS
-(
-    ISBN VARCHAR(17) not null
-        primary key,
-    TITLE VARCHAR(80) not null,
-    YEAR_PUBLISHED INTEGER not null,
-    AUTHORING_ENTITY_NAME VARCHAR(30)
-        constraint BKSTHRNGENTITYNAME
-            references AUTHORING_ENTITIES,
-    PUBLISHER_NAME VARCHAR(80)
-        constraint BOOKSPUBLISHERNAME
-            references PUBLISHERS,
-    unique (TITLE, PUBLISHER_NAME),
-    unique (TITLE, AUTHORING_ENTITY_NAME)
-);**/
+ (
+ ISBN VARCHAR(17) not null
+ primary key,
+ TITLE VARCHAR(80) not null,
+ YEAR_PUBLISHED INTEGER not null,
+ AUTHORING_ENTITY_NAME VARCHAR(30)
+ constraint BKSTHRNGENTITYNAME
+ references AUTHORING_ENTITIES,
+ PUBLISHER_NAME VARCHAR(80)
+ constraint BOOKSPUBLISHERNAME
+ references PUBLISHERS,
+ unique (TITLE, PUBLISHER_NAME),
+ unique (TITLE, AUTHORING_ENTITY_NAME)
+ );**/
 
 @Entity
 
-/**@Table(uniqueConstraints = {@UniqueConstraint(columnNames =
-        {"TITLE", "PUBLISHER_NAME"}), @UniqueConstraint(columnNames =
-        {"TITLE", "AUTHORING_ENTITY_NAME"})})**/
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames =
+        {"title", "publisher_name"}), @UniqueConstraint(columnNames =
+        {"title", "authoring_entity_name"})})
 public class Books {
     @Id
     @Column(length = 17, nullable = false)
@@ -34,10 +34,6 @@ public class Books {
     @Column(nullable = false)
     private int YEAR_PUBLISHED;
 
-    /*@JoinColumn(name = "BKSTHRNGENTITYNAME", referencedColumnName = "name")
-    @OneToMany(fetch = FetchType.LAZY)*/
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "")
     @Column(length = 30)
     private String AUTHORING_ENTITY_NAME;
 
@@ -84,3 +80,4 @@ public class Books {
                 " PUBLISHER_NAME: " + this.PUBLISHER_NAME;
     }
 }
+
