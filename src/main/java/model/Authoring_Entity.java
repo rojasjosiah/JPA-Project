@@ -35,7 +35,6 @@ public abstract class Authoring_Entity {
         this.setName(name);
         this.setHead_Writer(head_writer);
         this.setYear_Formed(year_formed);
-
     }*/
     public Authoring_Entity(String email, String authoring_entity_type, String name) {
         this.setEmail(email);
@@ -43,19 +42,24 @@ public abstract class Authoring_Entity {
         this.setName(name);
     }
 
+    public Authoring_Entity() {
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String e) { this.email = e; }
-
+    public void setEmail(String e) {
+        this.email = e;
+    }
 
     public String getAuthoring_Entity_Type() {
         return authoring_entity_type;
     }
 
-    public void setAuthoring_Entity_Type(String a) { this.authoring_entity_type = a; }
-
+    public void setAuthoring_Entity_Type(String a) {
+        this.authoring_entity_type = a;
+    }
 
     public String getName() {
         return name;
@@ -65,9 +69,7 @@ public abstract class Authoring_Entity {
         this.name = n;
     }
 
-
     /*public String getHead_Writer() {
-
         return head_writer;
     }
 
@@ -79,16 +81,13 @@ public abstract class Authoring_Entity {
 
     public void setYear_Formed(int y) {
         this.year_formed = y;
-
     }*/
 
-
     @Override
-    public String toString () {
+    public String toString() {
         return "Authoring_Entity - Email: " + this.getEmail() + " Type: " + this.getAuthoring_Entity_Type() +
-                " Name: " + this.getName() +
-                " Head Writer: " + this.getHead_Writer() +
-                " Year Formed: " + this.getYear_Formed();
+                " Name: " + this.getName();
+        //" Head Writer: " + this.getHead_Writer() +
+        //" Year Formed: " + this.getYear_Formed();
     }
 }
-
