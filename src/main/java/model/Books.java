@@ -36,6 +36,8 @@ public class Books {
 
     /*@JoinColumn(name = "BKSTHRNGENTITYNAME", referencedColumnName = "name")
     @OneToMany(fetch = FetchType.LAZY)*/
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name = "")
     @Column(length = 30)
     private String AUTHORING_ENTITY_NAME;
 
