@@ -34,7 +34,7 @@ public class Books {
     @Column(nullable = false)
     private int year_published;
 
-    @OneToMany
+    @ManyToMany
     @JoinColumn(referencedColumnName = "name")
     @Column(length = 30)
     private Authoring_Entity authoring_entity_name;
