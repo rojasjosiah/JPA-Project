@@ -159,6 +159,23 @@ public class JPAProject {
             }
             if (infoObjectInput == 1) {
                System.out.println("Publisher");
+               for (int i = 0; i < publishers.size(); i++) {
+                  System.out.println( (i+1) + ": "
+                          + publishers.get(i).getName());
+               }
+               int pubObjectInput = in.nextInt();
+               while (pubObjectInput < 1 || pubObjectInput > publishers.size()){
+                  System.out.println("Enter a valid number for the which Object");
+                  pubObjectInput = in.nextInt();
+               }
+               for (int i = 0; i < publishers.size(); i++) {
+                  if((i + 1) == pubObjectInput){
+                     System.out.println( (i+1) + ": "
+                             + publishers.get(i).getName() + " "
+                             + publishers.get(i).getEmail() + " "
+                             + publishers.get(i).getPhone());
+                  }
+               }
             }
             if (infoObjectInput == 2) {
                System.out.println("Book");
