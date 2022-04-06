@@ -242,12 +242,7 @@ public class JPAProject {
    } // End of createEntity member method
 
    /**
-    * Think of this as a simple map from a String to an instance of auto_body_styles that has the
-    * same name, as the string that you pass in.  To create a new Cars instance, you need to pass
-    * in an instance of auto_body_styles to satisfy the foreign key constraint, not just a string
-    * representing the name of the style.
-    * @param //name       The name of the autobody style that you are looking for.
-    * @return           The auto_body_styles instance corresponding to that style name.
+    * Prints out the starter menu
     */
 
    public static void printMenu(){
