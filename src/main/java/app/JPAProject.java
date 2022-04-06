@@ -15,6 +15,7 @@ package app;
 // Import all of the entity classes that we have written for this application.
 //import csulb.cecs323.model.*;
 
+import model.Books;
 import model.Publishers;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -78,8 +79,8 @@ public class JPAProject {
       tx.begin();
 
       //to add objects
-      List <model.Publishers> publishers = new ArrayList<model.Publishers>();
-      // ^ my program won't let me not add this, so ignore this the "csulb.cecs323.model." for now
+      List <Publishers> publishers = new ArrayList<>();
+      List <Books> books = new ArrayList<Books>();
 
       System.out.println("Enter the number for Tasks:");
       System.out.println("1. Add new objects");
@@ -118,6 +119,14 @@ public class JPAProject {
                }
                if (authoringEntityInput == 1) {
                   System.out.println("writing group");
+                  /*public Writing_Group (String email, String authoring_entity_type, String name, String head_writer, int year_formed){
+                       this.setEmail(email);
+                       this.setAuthoring_Entity_Type(authoring_entity_type);
+                       this.setName(name);
+                       this.setHead_Writer(head_writer);
+                       this.setYear_Formed(year_formed);
+                   }*/
+
                }
                if (authoringEntityInput == 2) {
                   System.out.println("Individual Author");
@@ -158,6 +167,23 @@ public class JPAProject {
             }
             if (infoObjectInput == 1) {
                System.out.println("Publisher");
+               for (int i = 0; i < publishers.size(); i++) {
+                  System.out.println( (i+1) + ": "
+                          + publishers.get(i).getName());
+               }
+               int pubObjectInput = in.nextInt();
+               while (pubObjectInput < 1 || pubObjectInput > publishers.size()){
+                  System.out.println("Enter a valid number for the which Object");
+                  pubObjectInput = in.nextInt();
+               }
+               for (int i = 0; i < publishers.size(); i++) {
+                  if((i + 1) == pubObjectInput){
+                     System.out.println( (i+1) + ": "
+                             + publishers.get(i).getName() + " "
+                             + publishers.get(i).getEmail() + " "
+                             + publishers.get(i).getPhone());
+                  }
+               }
             }
             if (infoObjectInput == 2) {
                System.out.println("Book");
@@ -168,6 +194,8 @@ public class JPAProject {
          }
          if (userInput == 3) {
             System.out.println("Delete a Book");
+            // Should remove the book in the first row
+            books.remove(0);
          }
          if (userInput == 4) {
             System.out.println("Update a Book");
@@ -186,7 +214,6 @@ public class JPAProject {
 
       jpaProject.createEntity(publishers);
 
-      jpaProject.entityManager.persist(publishers);
       // Commit the changes so that the new data persists and is visible to other users.
       tx.commit();
       LOGGER.fine("End of Transaction");
@@ -215,12 +242,7 @@ public class JPAProject {
    } // End of createEntity member method
 
    /**
-    * Think of this as a simple map from a String to an instance of auto_body_styles that has the
-    * same name, as the string that you pass in.  To create a new Cars instance, you need to pass
-    * in an instance of auto_body_styles to satisfy the foreign key constraint, not just a string
-    * representing the name of the style.
-    * @param //name       The name of the autobody style that you are looking for.
-    * @return           The auto_body_styles instance corresponding to that style name.
+    * Prints out the starter menu
     */
 
    public static void printMenu(){
