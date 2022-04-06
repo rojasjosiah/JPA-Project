@@ -29,7 +29,7 @@ public class Books {
     private String ISBN;
 
     @Column(length = 80, nullable = false)
-    private String TITLE;
+    private String title;
 
     @Column(nullable = false)
     private int YEAR_PUBLISHED;
@@ -37,17 +37,19 @@ public class Books {
     /*@JoinColumn(name = "BKSTHRNGENTITYNAME", referencedColumnName = "name")
     @OneToMany(fetch = FetchType.LAZY)*/
     @ManyToOne
-    @PrimaryKeyJoinColumn(name = "")
+    @JoinColumn(referencedColumnName = "name")
     @Column(length = 30)
-    private String AUTHORING_ENTITY_NAME;
+    private Authoring_Entity AUTHORING_ENTITY_NAME;
 
+    @ManyToMany
+    @JoinColumn(referencedColumnName = "name")
     @Column(length = 80)
-    private String PUBLISHER_NAME;
+    private Publishers PUBLISHER_NAME;
 
-    public Books(String ISBN, String TITLE, int YEAR_PUBLISHED, String AUTHORING_ENTITY_NAME,
-                 String PUBLISHER_NAME){
+    public Books(String ISBN, String title, int YEAR_PUBLISHED, Authoring_Entity AUTHORING_ENTITY_NAME,
+                 Publishers PUBLISHER_NAME){
         this.ISBN = ISBN;
-        this.TITLE = TITLE;
+        this.title = title;
         this.YEAR_PUBLISHED = YEAR_PUBLISHED;
         this.AUTHORING_ENTITY_NAME = AUTHORING_ENTITY_NAME;
         this.PUBLISHER_NAME = PUBLISHER_NAME;
@@ -67,7 +69,7 @@ public class Books {
         this.YEAR_PUBLISHED = YEAR_PUBLISHED;
     }
 
-    public void setAUTHORING_ENTITY_NAME(String AUTHORING_ENTITY_NAME) {
+    public void setAUTHORING_ENTITY_NAME(Authoring_Entity AUTHORING_ENTITY_NAME) {
         this.AUTHORING_ENTITY_NAME = AUTHORING_ENTITY_NAME;
     }
 
