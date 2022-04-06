@@ -37,6 +37,7 @@ public abstract class Authoring_Entity {
         this.setYear_Formed(year_formed);
 
     }*/
+    public Authoring_Entity() {}
     public Authoring_Entity(String email, String authoring_entity_type, String name) {
         this.setEmail(email);
         this.setAuthoring_Entity_Type(authoring_entity_type);
@@ -83,12 +84,12 @@ public abstract class Authoring_Entity {
     }*/
 
 
-    @Override
-    public String toString () {
-        return "Authoring_Entity - Email: " + this.getEmail() + " Type: " + this.getAuthoring_Entity_Type() +
-                " Name: " + this.getName() +
-                " Head Writer: " + this.getHead_Writer() +
-                " Year Formed: " + this.getYear_Formed();
-    }
+//    @Override
+//    public String toString () {
+//        return "Authoring_Entity - Email: " + this.getEmail() + " Type: " + this.getAuthoring_Entity_Type() +
+//                " Name: " + this.getName() +
+//                " Head Writer: " + this.getHead_Writer() +
+//                " Year Formed: " + this.getYear_Formed();
+//    }
 }
 
