@@ -79,9 +79,8 @@ public class JPAProject {
       tx.begin();
 
       //to add objects
-      List <Publishers> publishers = new ArrayList<Publishers>();
+      List <Publishers> publishers = new ArrayList<>();
       List <Books> books = new ArrayList<Books>();
-      // ^ my program won't let me not add this, so ignore this the "csulb.cecs323.model." for now
 
       System.out.println("Enter the number for Tasks:");
       System.out.println("1. Add new objects");
@@ -190,7 +189,6 @@ public class JPAProject {
 
       jpaProject.createEntity(publishers);
 
-      jpaProject.entityManager.persist(publishers);
       // Commit the changes so that the new data persists and is visible to other users.
       tx.commit();
       LOGGER.fine("End of Transaction");
