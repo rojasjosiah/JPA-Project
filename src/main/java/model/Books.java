@@ -36,13 +36,13 @@ public class Books {
     private int year_published;
 
     @ManyToMany
-    @JoinColumn(referencedColumnName = "name")
-    @Column(length = 30)
+    //@JoinTable
+    @JoinColumn//(length = 30)
     private Set<Authoring_Entity> authoring_entity_name;
 
     @ManyToMany
-    @JoinColumn(referencedColumnName = "name")
-    @Column(length = 80)
+   // @JoinTable
+    @JoinColumn//(length = 80)
     private Set<Publishers> publisher_name;
 
     public Books(String ISBN, String title, int year_published, Set<Authoring_Entity> authoring_entity_name,
