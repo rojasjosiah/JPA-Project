@@ -34,8 +34,8 @@ public class Books {
     @Column(nullable = false)
     private int YEAR_PUBLISHED;
 
-    //@JoinColumn(name = "BKSTHRNGENTITYNAME", referencedColumnName = "name")
-    //@OneToMany(fetch = FetchType.LAZY)
+    /*@JoinColumn(name = "BKSTHRNGENTITYNAME", referencedColumnName = "name")
+    @OneToMany(fetch = FetchType.LAZY)*/
     @Column(length = 30)
     private String AUTHORING_ENTITY_NAME;
 
