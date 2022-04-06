@@ -15,10 +15,12 @@ package app;
 // Import all of the entity classes that we have written for this application.
 //import csulb.cecs323.model.*;
 
+import model.Publishers;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -68,6 +70,17 @@ public class JPAProject {
       JPAProject jpaProject = new JPAProject(manager);
       Scanner in = new Scanner(System.in);
 
+      // Any changes to the database need to be done within a transaction.
+      // See: https://en.wikibooks.org/wiki/Java_Persistence/Transactions
+      LOGGER.fine("Begin of Transaction");
+      EntityTransaction tx = manager.getTransaction();
+
+      tx.begin();
+
+      //to add objects
+      List <model.Publishers> publishers = new ArrayList<model.Publishers>();
+      // ^ my program won't let me not add this, so ignore this the "csulb.cecs323.model." for now
+
       System.out.println("Enter the number for Tasks:");
       System.out.println("1. Add new objects");
       System.out.println("2. List all the information about a specific Object");
@@ -114,7 +127,16 @@ public class JPAProject {
                }
             }
             if (objectInput == 2) {
-               System.out.println("Individual Author");
+               System.out.println("Add a new Publisher");
+               System.out.println("Enter Name: ");
+               String nameInput= in.nextLine();
+               System.out.println(nameInput);
+               /*System.out.println("Enter Email: ");
+               String emailInput= in.nextLine();
+               System.out.println("Enter Phone: ");
+               String phoneInput= in.nextLine();
+               publishers.add(new Publishers(nameInput, emailInput, phoneInput));
+               System.out.println(publishers);*/
             }
             if (objectInput == 3) {
                System.out.println("Add a new Book");
@@ -159,16 +181,6 @@ public class JPAProject {
          userInput = in.nextInt();
       }
 
-      // Any changes to the database need to be done within a transaction.
-      // See: https://en.wikibooks.org/wiki/Java_Persistence/Transactions
-
-      LOGGER.fine("Begin of Transaction");
-      EntityTransaction tx = manager.getTransaction();
-
-      tx.begin();
-
-
-
       // Commit the changes so that the new data persists and is visible to other users.
       tx.commit();
       LOGGER.fine("End of Transaction");
@@ -201,7 +213,7 @@ public class JPAProject {
     * same name, as the string that you pass in.  To create a new Cars instance, you need to pass
     * in an instance of auto_body_styles to satisfy the foreign key constraint, not just a string
     * representing the name of the style.
-    * @param name       The name of the autobody style that you are looking for.
+    * @param //name       The name of the autobody style that you are looking for.
     * @return           The auto_body_styles instance corresponding to that style name.
     */
 

@@ -20,9 +20,9 @@ import javax.persistence.*;
 
 @Entity
 
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames =
+/**@Table(uniqueConstraints = {@UniqueConstraint(columnNames =
         {"TITLE", "PUBLISHER_NAME"}), @UniqueConstraint(columnNames =
-        {"TITLE", "AUTHORING_ENTITY_NAME"})})
+        {"TITLE", "AUTHORING_ENTITY_NAME"})})**/
 public class Books {
     @Id
     @Column(length = 17, nullable = false)
@@ -35,7 +35,7 @@ public class Books {
     private int YEAR_PUBLISHED;
 
     //@JoinColumn(name = "BKSTHRNGENTITYNAME", referencedColumnName = "name")
-    @OneToMany(fetch = FetchType.LAZY)
+    //@OneToMany(fetch = FetchType.LAZY)
     @Column(length = 30)
     private String AUTHORING_ENTITY_NAME;
 

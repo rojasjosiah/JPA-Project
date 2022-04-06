@@ -1,4 +1,4 @@
-package csulb.cecs323.model;
+package model;
 /** From Josiah's branch. **/
 
 /*create table PUBLISHERS
@@ -16,38 +16,38 @@ import javax.persistence.*;
 public class Publishers {
     @Id
     @Column(length = 80, nullable = false)
-    private String NAME;
+    private String name;
 
     @Column(length = 80, nullable = false, unique = true)
-    private String EMAIL;
+    private String email;
 
     @Column(length = 24, nullable = false, unique = true)
-    private String PHONE;
+    private String phone;
 
-    public Publishers (String NAME, String EMAIL, String PHONE){
-        this.setNAME(NAME);
-        this.setEMAIL(EMAIL);
-        this.setPHONE(PHONE);
+    public Publishers (String name, String email, String phone){
+        this.setName(name);
+        this.setEmail(email);
+        this.setPhone(phone);
     }
 
     public Publishers () {}
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setEMAIL(String email) {
-        this.EMAIL = email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setPHONE(String PHONE) {
-        this.PHONE = PHONE;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     /** for debugging **/
     @Override
     public String toString () {
-        return "Publisher - Name: " + this.NAME + " Email: " + this.EMAIL +
-                " Phone: " + this.PHONE;
+        return "Publisher - Name: " + this.name + " Email: " + this.email +
+                " Phone: " + this.phone;
     }
 }
