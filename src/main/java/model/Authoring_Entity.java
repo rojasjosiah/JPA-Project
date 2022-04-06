@@ -1,4 +1,4 @@
-package csulb.cecs323.model;
+package model;
 
 import javax.persistence.*;
 
@@ -19,7 +19,8 @@ public class Authoring_Entity {
     @Column (length=31)
     private String authoring_entity_type;
 
-    @Column (length=80, nullable = false)
+    /*@OneToOne(fetch = FetchType.LAZY, mappedBy = "AUTHORING_ENTITY_NAME")
+    @Column (length=80, nullable = false)*/
     private String name;
 
     @Column (length=80)

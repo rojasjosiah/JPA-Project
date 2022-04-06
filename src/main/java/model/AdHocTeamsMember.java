@@ -1,4 +1,4 @@
-package csulb.cecs323.model;
+package model;
 
 import javax.persistence.*;
 
