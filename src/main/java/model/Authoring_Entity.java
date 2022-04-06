@@ -37,12 +37,14 @@ public abstract class Authoring_Entity {
         this.setYear_Formed(year_formed);
 
     }*/
-    public Authoring_Entity() {}
+
     public Authoring_Entity(String email, String authoring_entity_type, String name) {
         this.setEmail(email);
         this.setAuthoring_Entity_Type(authoring_entity_type);
         this.setName(name);
     }
+
+    public Authoring_Entity() {}
 
     public String getEmail() {
         return email;
@@ -50,13 +52,11 @@ public abstract class Authoring_Entity {
 
     public void setEmail(String e) { this.email = e; }
 
-
     public String getAuthoring_Entity_Type() {
         return authoring_entity_type;
     }
 
     public void setAuthoring_Entity_Type(String a) { this.authoring_entity_type = a; }
-
 
     public String getName() {
         return name;
