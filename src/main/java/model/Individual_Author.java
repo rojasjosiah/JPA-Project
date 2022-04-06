@@ -8,5 +8,5 @@ public class Individual_Author extends Authoring_Entity{
     }
 
     public Individual_Author() {}
-    
+
 }
