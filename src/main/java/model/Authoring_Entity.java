@@ -3,7 +3,8 @@ package model;
 import javax.persistence.*;
 
 @Entity
-public class Authoring_Entity {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Authoring_Entity {
     /*
     create table AUTHORING_ENTITIES (
     EMAIL VARCHAR(30) not null primary key,
@@ -13,19 +14,16 @@ public class Authoring_Entity {
     YEAR_FORMED INTEGER
 );*/
     @Id
-    @Column (length=30, nullable = false)
+    @Column(length = 30, nullable = false)
     private String email;
 
-    @Column (length=31)
+    @Column(length = 31)
     private String authoring_entity_type;
 
-// I could be wrong, but this doesn't look like a one to one relationship
-// it's just a normal column
-//    @OneToOne(fetch = FetchType.LAZY, mappedBy = "AUTHORING_ENTITY_NAME")
-    @Column (length=80, nullable = false)
+    @Column(length = 80, nullable = false)
     private String name;
 
-    @Column (length=80)
+    /*@Column (length=80)
     private String head_writer;
 
     @Column
@@ -37,9 +35,13 @@ public class Authoring_Entity {
         this.setName(name);
         this.setHead_Writer(head_writer);
         this.setYear_Formed(year_formed);
-    }
 
-    public Authoring_Entity () {}
+    }*/
+    public Authoring_Entity(String email, String authoring_entity_type, String name) {
+        this.setEmail(email);
+        this.setAuthoring_Entity_Type(authoring_entity_type);
+        this.setName(name);
+    }
 
     public String getEmail() {
         return email;
@@ -47,11 +49,13 @@ public class Authoring_Entity {
 
     public void setEmail(String e) { this.email = e; }
 
+
     public String getAuthoring_Entity_Type() {
         return authoring_entity_type;
     }
 
     public void setAuthoring_Entity_Type(String a) { this.authoring_entity_type = a; }
+
 
     public String getName() {
         return name;
@@ -61,7 +65,9 @@ public class Authoring_Entity {
         this.name = n;
     }
 
-    public String getHead_Writer() {
+
+    /*public String getHead_Writer() {
+
         return head_writer;
     }
 
@@ -73,7 +79,9 @@ public class Authoring_Entity {
 
     public void setYear_Formed(int y) {
         this.year_formed = y;
-    }
+
+    }*/
+
 
     @Override
     public String toString () {

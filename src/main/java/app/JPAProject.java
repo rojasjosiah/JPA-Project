@@ -15,6 +15,7 @@ package app;
 // Import all of the entity classes that we have written for this application.
 //import csulb.cecs323.model.*;
 
+import model.Books;
 import model.Publishers;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -78,7 +79,8 @@ public class JPAProject {
       tx.begin();
 
       //to add objects
-      List <model.Publishers> publishers = new ArrayList<model.Publishers>();
+      List <Publishers> publishers = new ArrayList<Publishers>();
+      List <Books> books = new ArrayList<Books>();
       // ^ my program won't let me not add this, so ignore this the "csulb.cecs323.model." for now
 
       System.out.println("Enter the number for Tasks:");
@@ -168,6 +170,8 @@ public class JPAProject {
          }
          if (userInput == 3) {
             System.out.println("Delete a Book");
+            // Should remove the book in the first row
+            books.remove(0);
          }
          if (userInput == 4) {
             System.out.println("Update a Book");
