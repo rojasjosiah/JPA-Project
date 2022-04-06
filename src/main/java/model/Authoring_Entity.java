@@ -19,8 +19,10 @@ public class Authoring_Entity {
     @Column (length=31)
     private String authoring_entity_type;
 
-    /*@OneToOne(fetch = FetchType.LAZY, mappedBy = "AUTHORING_ENTITY_NAME")
-    @Column (length=80, nullable = false)*/
+// I could be wrong, but this doesn't look like a one to one relationship
+// it's just a normal column
+//    @OneToOne(fetch = FetchType.LAZY, mappedBy = "AUTHORING_ENTITY_NAME")
+    @Column (length=80, nullable = false)
     private String name;
 
     @Column (length=80)

@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**create table BOOKS
  (
@@ -9,7 +10,7 @@ import javax.persistence.*;
  TITLE VARCHAR(80) not null,
  YEAR_PUBLISHED INTEGER not null,
  AUTHORING_ENTITY_NAME VARCHAR(30)
- constraint BKSTHRNGENTITYNAME
+ constraint BOOKSAUTHORNGENTITYNAME
  references AUTHORING_ENTITIES,
  PUBLISHER_NAME VARCHAR(80)
  constraint BOOKSPUBLISHERNAME
@@ -37,15 +38,15 @@ public class Books {
     @ManyToMany
     @JoinColumn(referencedColumnName = "name")
     @Column(length = 30)
-    private Authoring_Entity authoring_entity_name;
+    private Set<Authoring_Entity> authoring_entity_name;
 
     @ManyToMany
     @JoinColumn(referencedColumnName = "name")
     @Column(length = 80)
-    private Publishers publisher_name;
+    private Set<Publishers> publisher_name;
 
-    public Books(String ISBN, String title, int year_published, Authoring_Entity authoring_entity_name,
-                 Publishers publisher_name){
+    public Books(String ISBN, String title, int year_published, Set<Authoring_Entity> authoring_entity_name,
+                 Set<Publishers> publisher_name){
         this.ISBN = ISBN;
         this.title = title;
         this.year_published = year_published;
