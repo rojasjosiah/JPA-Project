@@ -171,7 +171,7 @@ public class JPAProject {
          if (userInput == 3) {
             System.out.println("Delete a Book");
             // Should remove the book in the first row
-            books.remove(0);
+            //books.remove(0);
          }
          if (userInput == 4) {
             System.out.println("Update a Book");
@@ -190,9 +190,12 @@ public class JPAProject {
 
       jpaProject.createEntity(publishers);
 
-      jpaProject.entityManager.persist(publishers);
+      //jpaProject.entityManager.persist(publishers);
+      //System.out.println("test 2");
+
       // Commit the changes so that the new data persists and is visible to other users.
       tx.commit();
+
       LOGGER.fine("End of Transaction");
 
    } // End of the main method
