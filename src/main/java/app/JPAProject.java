@@ -119,6 +119,14 @@ public class JPAProject {
                }
                if (authoringEntityInput == 1) {
                   System.out.println("writing group");
+                  /*public Writing_Group (String email, String authoring_entity_type, String name, String head_writer, int year_formed){
+                       this.setEmail(email);
+                       this.setAuthoring_Entity_Type(authoring_entity_type);
+                       this.setName(name);
+                       this.setHead_Writer(head_writer);
+                       this.setYear_Formed(year_formed);
+                   }*/
+
                }
                if (authoringEntityInput == 2) {
                   System.out.println("Individual Author");

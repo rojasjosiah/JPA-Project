@@ -10,7 +10,6 @@ package model;
         PHONE VARCHAR(24) not null
         unique
         );*/
-
 import javax.persistence.*;
 @Entity
 public class Publishers {
