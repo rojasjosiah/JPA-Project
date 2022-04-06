@@ -10,7 +10,7 @@ import java.util.Set;
  TITLE VARCHAR(80) not null,
  YEAR_PUBLISHED INTEGER not null,
  AUTHORING_ENTITY_NAME VARCHAR(30)
- constraint BKSTHRNGENTITYNAME
+ constraint BOOKSAUTHORNGENTITYNAME
  references AUTHORING_ENTITIES,
  PUBLISHER_NAME VARCHAR(80)
  constraint BOOKSPUBLISHERNAME
@@ -36,12 +36,10 @@ public class Books {
     private int year_published;
 
     @ManyToMany
-    //@JoinTable
     @JoinColumn//(length = 30)
     private Set<Authoring_Entity> authoring_entity_name;
 
     @ManyToMany
-   // @JoinTable
     @JoinColumn//(length = 80)
     private Set<Publishers> publisher_name;
 
