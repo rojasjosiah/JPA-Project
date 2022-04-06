@@ -1,53 +1,82 @@
-package model;
-/** From Josiah's branch. **/
-
-/*create table PUBLISHERS
-        (
-        NAME VARCHAR(80) not null
-        primary key,
-        EMAIL VARCHAR(80) not null
-        unique,
-        PHONE VARCHAR(24) not null
-        unique
-        );*/
+package csulb.cecs323.model;
 
 import javax.persistence.*;
-@Entity
-public class Publishers {
-    @Id
-    @Column(length = 80, nullable = false)
-    private String name;
 
-    @Column(length = 80, nullable = false, unique = true)
+@Entity
+public class Authoring_Entity {
+    /*
+    create table AUTHORING_ENTITIES (
+    EMAIL VARCHAR(30) not null primary key,
+    AUTHORING_ENTITY_TYPE VARCHAR(31),
+    NAME VARCHAR(80) not null,
+    HEAD_WRITER VARCHAR(80),
+    YEAR_FORMED INTEGER
+);*/
+    @Id
+    @Column (length=30, nullable = false)
     private String email;
 
-    @Column(length = 24, nullable = false, unique = true)
-    private String phone;
+    @Column (length=31)
+    private String authoring_entity_type;
 
-    public Publishers (String name, String email, String phone){
-        this.setName(name);
+    @Column (length=80, nullable = false)
+    private String name;
+
+    @Column (length=80)
+    private String head_writer;
+
+    @Column
+    private int year_formed;
+
+    public Authoring_Entity (String email, String authoring_entity_type, String name, String head_writer, int year_formed) {
         this.setEmail(email);
-        this.setPhone(phone);
+        this.setAuthoring_Entity_Type(authoring_entity_type);
+        this.setName(name);
+        this.setHead_Writer(head_writer);
+        this.setYear_Formed(year_formed);
     }
 
-    public Publishers () {}
+    public Authoring_Entity () {}
 
-    public void setName(String name) {
-        this.name = name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String e) { this.email = e; }
+
+    public String getAuthoring_Entity_Type() {
+        return authoring_entity_type;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAuthoring_Entity_Type(String a) { this.authoring_entity_type = a; }
+
+    public String getName() {
+        return name;
     }
 
-    /** for debugging **/
+    public void setName(String n) {
+        this.name = n;
+    }
+
+    public String getHead_Writer() {
+        return head_writer;
+    }
+
+    public void setHead_Writer(String h) {
+        this.head_writer = h;
+    }
+
+    public int getYear_Formed() { return year_formed; }
+
+    public void setYear_Formed(int y) {
+        this.year_formed = y;
+    }
+
     @Override
     public String toString () {
-        return "Publisher - Name: " + this.name + " Email: " + this.email +
-                " Phone: " + this.phone;
+        return "Authoring_Entity - Email: " + this.getEmail() + " Type: " + this.getAuthoring_Entity_Type() +
+                " Name: " + this.getName() +
+                " Head Writer: " + this.getHead_Writer() +
+                " Year Formed: " + this.getYear_Formed();
     }
 }
