@@ -86,7 +86,7 @@ public abstract class Authoring_Entity {
     @Override
     public String toString() {
         return "Authoring_Entity - Email: " + this.getEmail() + " Type: " + this.getAuthoring_Entity_Type() +
-                " Name: " + this.getName() +;
+                " Name: " + this.getName();
         //" Head Writer: " + this.getHead_Writer() +
         //" Year Formed: " + this.getYear_Formed();
     }
